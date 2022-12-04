@@ -7,7 +7,7 @@ const ProductCard = ({ product }) => {
   const { addProductToWishList, addProductToCartList } = useContext(UserContext);
 
   return (
-    <div className='w-[360px] m-[30px] flex flex-col items-center relative'>
+    <div className='w-[360px] m-[30px] flex flex-col items-center relative bg-gray-100'>
       <div className='h-72 p-2'>
         <img
           className='h-full max-w-[340px]'

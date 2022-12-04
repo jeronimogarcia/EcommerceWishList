@@ -29,6 +29,11 @@ const Navbar = () => {
             Register
           </Link>
         </li>
+        <li>
+          <Link to="/wishlist" className="hover:text-red-500">
+            Wish List
+          </Link>
+        </li>
       </ol>
     </div>
   );

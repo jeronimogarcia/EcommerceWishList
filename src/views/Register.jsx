@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Formik } from "formik";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import Spinner from "../components/Spinner/Spinner";
+import { UserContext } from "../context/UserContext";
 
 const RegisterView = () => {
   const [isDisable, setIsDisable] = useState(false);
   const [usedEmail, setUsedEmail] = useState(false);
   const [registeredEmail, setRegisteredEmail] = useState(false);
+
+  const { createWishListAndCartListInDataBase } = useContext(UserContext);
 
   const auth = getAuth();
 
@@ -30,7 +33,7 @@ const RegisterView = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
+        createWishListAndCartListInDataBase(user)
         setRegisteredEmail(true);
         handleReset();
       })

@@ -34,6 +34,7 @@ const Login = () => {
         const user = userCredential.user;
         setUsuario(user);
         console.log(user);
+        console.log(user.uid)
         setLogedEmail(true);
         handleReset();
       })

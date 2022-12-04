@@ -13,7 +13,7 @@ const Home = () => {
 
 
   return (
-    <section className='mt-36 flex flex-wrap justify-center'>
+    <section className='mt-28 flex flex-wrap justify-center'>
       {productList.map((product) => {
         return <ProductCard key={product.title} product={product} />
       })}
