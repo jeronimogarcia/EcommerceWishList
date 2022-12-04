@@ -11,7 +11,7 @@ const Login = () => {
 
   const auth = getAuth();
 
-  const { usuario, setUsuario } = useContext(UserContext);
+  const { usuario, setUsuario, getWishListFromDatabase, getCartListFromDatabase } = useContext(UserContext);
 
   const handleSubmitForm = (e, errors, values, handleSubmit, handleReset) => {
     setWrongPassword(false);
@@ -33,9 +33,9 @@ const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         setUsuario(user);
-        console.log(user);
-        console.log(user.uid)
         setLogedEmail(true);
+        getWishListFromDatabase(user)
+        getCartListFromDatabase(user)
         handleReset();
       })
       .catch((error) => {
